@@ -72,6 +72,8 @@ const typeDefs = gql`
   }
   
   type Mutation {
+    recruiterLogout: Result
+    candidateLogout: Result
     recruiterSignup(name: String!, email: String!, password: String!): Recruiter
     recruiterLogin(email: String!, password: String!): Recruiter
     candidateSignup(name: String!, email: String!, password: String!, highest_qualification: String, college_name: String, college_passout_year: Int, college_percent: Float, school_name: String, school_passout_year: Int, board_percent: Float, work_experience: String): Candidate
