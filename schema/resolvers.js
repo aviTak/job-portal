@@ -205,6 +205,17 @@ const resolvers = {
 
       return null;
     },
+    
+    recruiterLogout: (_, args, context) => {
+      context.res.cookie("recruiter", 0, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        maxAge: 0
+      });
+
+      return { value: true, message: "You are logged out" };
+    },
 
     candidateSignup: async (_, args, context) => {
       const cand = await Candidate.create({
@@ -288,6 +299,17 @@ const resolvers = {
       }
 
       return null;
+    },
+    
+    candidateLogout: (_, args, context) => {
+      context.res.cookie("candidate", 0, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        maxAge: 0
+      });
+
+      return { value: true, message: "You are logged out" };
     },
 
     postJob: async (_, args, context) => {
